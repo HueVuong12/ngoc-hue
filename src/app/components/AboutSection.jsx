@@ -9,7 +9,7 @@ const TAB_DATA = [
     id: "skills",
     content: (
       <ul className="list-disc pl-2">
-        <li>Automation Tester: Selenium, Postman, JMeter, API Testing, Performance Testing</li>
+        <li>Automation Tester: Selenium, WebDriver, TestNG, JUnit, Postman, JMeter, API Testing, Performance Testing</li>
         <li>Frontend: ReactJs, React Query, Tailwind CSS</li>
         <li>Database: MongoDB, SQL</li>
         <li>Mobile: React Native</li>
@@ -54,7 +54,7 @@ const AboutSection = () => {
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
-            I am a Tester Automation  with a passion for ensuring high-quality products through meticulous testing and attention to detail. I have experience working with manual and automated testing processes, and I’m familiar with tools like Postman, Selenium, JUnit, TestNG, and Jira.
+            I am a Tester Automation  with a passion for ensuring high-quality products through meticulous testing and attention to detail. I have experience working with manual and automated testing processes, and I’m familiar with tools like Postman, Selenium, WebDriver, JUnit, TestNG, and Jira.
             I have a good understanding of software development life cycle (SDLC) and agile methodologies, and I collaborate closely with developers to detect and resolve issues early.
             I am a quick learner and always seeking to expand my knowledge of testing tools and techniques. I am a team player and excited to contribute to building stable, reliable, and user-friendly applications.
           </p>
