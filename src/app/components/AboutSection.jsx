@@ -46,19 +46,7 @@ const TAB_DATA = [
     id: "work_experience",
     content: (
       <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg text-gray-300 hover:shadow-purple-500/30 transition-all duration-300 space-y-3">
-        <h3 className="text-lg font-semibold text-purple-400">
-          Internship – MobiFone Corporation
-        </h3>
-        <p>
-          <span className="font-semibold text-purple-300">Duration:</span> March 2025
-        </p>
-        <p>
-          <span className="font-semibold text-purple-300">Role:</span> Software Testing Intern
-        </p>
-        <p>
-          Participated in software quality assurance tasks including test case creation, 
-          manual testing, and automation testing under the guidance of senior testers.
-        </p>
+        
       </div>
     ),
   },
@@ -121,20 +109,6 @@ const TAB_DATA = [
           <span className="font-semibold text-purple-300">Skills Acquired:</span>{" "}
           Enhanced proficiency in automation testing, no-code tools, Japanese business culture, 
           and team collaboration.
-        </p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Volunteer Experience",
-    id: "volunteer_experience",
-    content: (
-      <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
-        <h3 className="text-lg font-semibold text-purple-400">Community Support Activities</h3>
-        <p>
-          Participated in volunteer events and student mentoring programs, 
-          contributing to social initiatives and university community development.
         </p>
       </div>
     ),
