@@ -5,7 +5,9 @@ console.log("RESEND_API_KEY =", process.env.RESEND_API_KEY);
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
 const toEmail = process.env.TO_EMAIL;
-
+if (!process.env.RESEND_API_KEY) {
+  console.error("❌ Missing RESEND_API_KEY in environment variables");
+}
 export async function POST(req) {
   try {
     const { email, subject, message } = await req.json();
