@@ -45,8 +45,52 @@ const TAB_DATA = [
     title: "Work Experience",
     id: "work_experience",
     content: (
-      <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg text-gray-300 hover:shadow-purple-500/30 transition-all duration-300 space-y-3">
-        
+      <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg text-gray-300 hover:shadow-purple-500/30 transition-all duration-300 space-y-5">
+        {/* Company Header */}
+        <div>
+          <h3 className="text-xl font-semibold text-purple-400">
+            FPT IS
+          </h3>
+        </div>
+
+        {/* Fresher Role */}
+        <div>
+          <p className="text-gray-300 font-medium">
+            Software Tester (Fresher) <span className="text-gray-400 text-sm">| 11/2025 – Present</span>
+          </p>
+
+        </div>
+
+        {/* Intern Role */}
+        <div>
+          <p className="text-gray-300 font-medium mt-4">
+            Software Tester Intern <span className="text-gray-400 text-sm">| 07/2025 – 10/2025</span>
+          </p>
+
+          <div className="space-y-3 mt-1">
+            <div>
+              <p className="text-gray-200 font-semibold">VNeID Mini App</p>
+              <ul className="list-disc list-inside text-gray-300 space-y-1">
+                <li>Tested a national digital identity mini app used by millions of citizens across Vietnam.</li>
+                <li>Designed and executed functional, UI, and API test cases for authentication and user management modules.</li>
+                <li>Performed regression testing during release cycles to ensure system reliability and compliance with government standards.</li>
+                <li>Collaborated with developers and business analysts to track, verify, and resolve defects efficiently.</li>
+                <li>Tools: Postman, Jira, Excel.</li>
+              </ul>
+            </div>
+
+            <div>
+              <p className="text-gray-200 font-semibold">Di_HDBank Mobile App</p>
+              <ul className="list-disc list-inside text-gray-300 space-y-1">
+                <li>Conducted functional, UI, and API testing for mobile banking features used nationwide.</li>
+                <li>Performed regression testing across Android and iOS to ensure feature consistency and stability.</li>
+                <li>Verified API responses and optimized end-user experience through detailed defect analysis.</li>
+                <li>Collaborated with developers to resolve issues and improve product quality.</li>
+                <li>Tools: Postman, Jira, TestRail.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     ),
   },
@@ -107,7 +151,7 @@ const TAB_DATA = [
         </p>
         <p>
           <span className="font-semibold text-purple-300">Skills Acquired:</span>{" "}
-          Enhanced proficiency in automation testing, no-code tools, Japanese business culture, 
+          Enhanced proficiency in automation testing, no-code tools, Japanese business culture,
           and team collaboration.
         </p>
       </div>
@@ -146,7 +190,7 @@ const AboutSection = () => {
             I have a good understanding of SDLC and Agile methodologies, and I collaborate
             closely with developers to detect and resolve issues early.
             <br />
-            I am a quick learner, always seeking to expand my testing knowledge, 
+            I am a quick learner, always seeking to expand my testing knowledge,
             and excited to contribute to building reliable, user-friendly applications.
           </p>
 
