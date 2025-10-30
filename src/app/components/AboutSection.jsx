@@ -2,172 +2,230 @@
 
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import TabButton from "./TabButton";
-
-const TAB_DATA = [
-  {
-    title: "Skills",
-    id: "skills",
-    content: (
-      <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg text-justify hover:shadow-purple-500/30 transition-all duration-300 space-y-4">
-        <div className="space-y-3 text-gray-300">
-          <p>
-            <span className="font-semibold text-purple-300">Automation Testing:</span>{" "}
-            Selenium WebDriver, TestNG, JUnit, Postman, REST Assured, CI/CD, JMeter,
-            Performance Testing.
-          </p>
-
-          <p>
-            <span className="font-semibold text-purple-300">Frontend:</span>{" "}
-            React.js, React Query, Tailwind CSS.
-          </p>
-
-          <p>
-            <span className="font-semibold text-purple-300">Database:</span>{" "}
-            MongoDB, SQL.
-          </p>
-
-          <p>
-            <span className="font-semibold text-purple-300">Mobile:</span>{" "}
-            React Native.
-          </p>
-
-          <p>
-            <span className="font-semibold text-purple-300">Other Tools:</span>{" "}
-            Git, Figma.
-          </p>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Work Experience",
-    id: "work_experience",
-    content: (
-      <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg text-gray-300 hover:shadow-purple-500/30 transition-all duration-300 space-y-5">
-        {/* Company Header */}
-        <div>
-          <h3 className="text-xl font-semibold text-purple-400">
-            FPT IS
-          </h3>
-        </div>
-
-        {/* Fresher Role */}
-        <div>
-          <p className="text-gray-300 font-medium">
-            Software Tester (Fresher) <span className="text-gray-400 text-sm">| Nov 2025 – Present</span>
-          </p>
-
-        </div>
-
-        {/* Intern Role */}
-        <div>
-          <p className="text-gray-300 font-medium mt-4">
-            Software Tester Intern <span className="text-gray-400 text-sm">| Jul 2025 – Oct 2025</span>
-          </p>
-
-          <div className="space-y-3 mt-1">
-            <div>
-              <p className="text-gray-200 font-semibold">VNeID Mini App</p>
-              <ul className="list-disc list-inside text-gray-300 space-y-1">
-                <li>Tested a national digital identity mini app used by millions of citizens across Vietnam.</li>
-                <li>Designed and executed functional, UI, and API test cases for authentication and user management modules.</li>
-                <li>Performed regression testing during release cycles to ensure system reliability and compliance with government standards.</li>
-                <li>Collaborated with developers and business analysts to track, verify, and resolve defects efficiently.</li>
-                <li>Tools: Postman, Jira, Excel.</li>
-              </ul>
-            </div>
-
-            <div>
-              <p className="text-gray-200 font-semibold">Di_HDBank Mobile App</p>
-              <ul className="list-disc list-inside text-gray-300 space-y-1">
-                <li>Conducted functional, UI, and API testing for mobile banking features used nationwide.</li>
-                <li>Performed regression testing across Android and iOS to ensure feature consistency and stability.</li>
-                <li>Verified API responses and optimized end-user experience through detailed defect analysis.</li>
-                <li>Collaborated with developers to resolve issues and improve product quality.</li>
-                <li>Tools: Postman, Jira, TestRail.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    title: "Education",
-    id: "education",
-    content: (
-      <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition-all duration-300 space-y-3 text-gray-300 text-justify">
-        <h3 className="text-lg font-semibold text-purple-400">
-          Industrial University of Ho Chi Minh City
-        </h3>
-        <p>
-          <span className="font-semibold text-purple-300">Major:</span> Software Engineering
-        </p>
-        <p>
-          <span className="font-semibold text-purple-300">Duration:</span> 2021 – Present
-        </p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Certificates",
-    id: "certificates",
-    content: (
-      <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-4 hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
-        <p>
-          <span className="font-semibold text-purple-300">TOEIC:</span>{" "}
-          655 (Listening & Reading), issued by IIG Vietnam (2025)
-        </p>
-        <p>
-          <span className="font-semibold text-purple-300">Observation Internship:</span>{" "}
-          MobiFone Corporation (March 2025)
-        </p>
-      </div>
-    ),
-  },
-
-  {
-    title: "Awards",
-    id: "awards",
-    content: (
-      <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-4 text-justify hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
-        <h3 className="text-lg font-semibold text-purple-400">
-          AOTS Scholarship – Japan / Technical Training Program Funded by the Japanese Government (2025)
-        </h3>
-        <p>
-          Participated in a training course organized by{" "}
-          <span className="font-semibold text-white">
-            AOTS (Association for Overseas Technical Cooperation and Sustainable Partnerships)
-          </span>.
-        </p>
-        <p>
-          <span className="font-semibold text-purple-300">Study Topics:</span>{" "}
-          Web Programming, Software Testing and Quality Assurance, No-code/Low-code Development,
-          Japanese Language, and Japanese Corporate Culture.
-        </p>
-        <p>
-          <span className="font-semibold text-purple-300">Skills Acquired:</span>{" "}
-          Enhanced proficiency in automation testing, no-code tools, Japanese business culture,
-          and team collaboration.
-        </p>
-      </div>
-    ),
-  },
-];
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
+  const [isExpanded, setIsExpanded] = useState(false); // <-- thêm state cho expand ▼
 
   const handleTabChange = (id) => {
     startTransition(() => {
       setTab(id);
     });
   };
+
+  const TAB_DATA = [
+    {
+      title: "Skills",
+      id: "skills",
+      content: (
+        <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg text-justify hover:shadow-purple-500/30 transition-all duration-300 space-y-4">
+          <div className="space-y-3 text-gray-300">
+            <p>
+              <span className="font-semibold text-purple-300">Automation Testing:</span>{" "}
+              Selenium WebDriver, TestNG, JUnit, Postman, REST Assured, CI/CD, JMeter,
+              Performance Testing.
+            </p>
+
+            <p>
+              <span className="font-semibold text-purple-300">Frontend:</span>{" "}
+              React.js, React Query, Tailwind CSS.
+            </p>
+
+            <p>
+              <span className="font-semibold text-purple-300">Database:</span>{" "}
+              MongoDB, SQL.
+            </p>
+
+            <p>
+              <span className="font-semibold text-purple-300">Mobile:</span>{" "}
+              React Native.
+            </p>
+
+            <p>
+              <span className="font-semibold text-purple-300">Other Tools:</span>{" "}
+              Git, Figma.
+            </p>
+          </div>
+        </div>
+      ),
+    },
+
+    {
+      title: "Work Experience",
+      id: "work_experience",
+      content: (
+        <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg text-gray-300 hover:shadow-purple-500/30 transition-all duration-300 space-y-5">
+          <div>
+            <h3 className="text-xl font-semibold text-purple-400">FPT IS</h3>
+          </div>
+
+          {/* Fresher Role */}
+          <div>
+            <p className="text-gray-300 font-medium">
+              Software Tester (Fresher){" "}
+              <span className="text-gray-400 text-sm">| Nov 2025 – Present</span>
+            </p>
+          </div>
+
+          {/* Intern Role */}
+          <div>
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="w-full flex justify-between items-center text-left text-gray-300 font-medium mt-4 hover:text-purple-300 transition-all"
+            >
+              <span>
+                Software Tester Intern{" "}
+                <span className="text-gray-400 text-sm">| Jul 2025 – Oct 2025</span>
+              </span>
+              {isExpanded ? (
+                <ChevronUp className="w-5 h-5 text-purple-400" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-purple-400" />
+              )}
+            </button>
+
+            {isExpanded && (
+              <div className="space-y-3 mt-3 animate-fadeIn">
+                <div>
+                  <p className="text-gray-200 font-semibold">VNeID Mini App</p>
+                  <ul className="list-disc list-inside text-gray-300 space-y-1">
+                    <li>
+                      Tested a national digital identity mini app used by millions of
+                      citizens across Vietnam.
+                    </li>
+                    <li>
+                      Designed and executed functional, UI, and API test cases for
+                      authentication and user management modules.
+                    </li>
+                    <li>
+                      Performed regression testing during release cycles to ensure
+                      system reliability and compliance with government standards.
+                    </li>
+                    <li>
+                      Collaborated with developers and business analysts to track,
+                      verify, and resolve defects efficiently.
+                    </li>
+                    <li>Tools: Postman, Jira, Excel.</li>
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-gray-200 font-semibold">Di_HDBank Mobile App</p>
+                  <ul className="list-disc list-inside text-gray-300 space-y-1">
+                    <li>
+                      Conducted functional, UI, and API testing for mobile banking
+                      features used nationwide.
+                    </li>
+                    <li>
+                      Performed regression testing across Android and iOS to ensure
+                      feature consistency and stability.
+                    </li>
+                    <li>
+                      Verified API responses and optimized end-user experience through
+                      detailed defect analysis.
+                    </li>
+                    <li>
+                      Collaborated with developers to resolve issues and improve product
+                      quality.
+                    </li>
+                    <li>Tools: Postman, Jira, TestRail.</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <style jsx>{`
+            @keyframes fadeIn {
+              from {
+                opacity: 0;
+                transform: translateY(-5px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            .animate-fadeIn {
+              animation: fadeIn 0.3s ease-in-out;
+            }
+          `}</style>
+        </div>
+      ),
+    },
+
+    {
+      title: "Education",
+      id: "education",
+      content: (
+        <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg hover:shadow-purple-500/30 transition-all duration-300 space-y-3 text-gray-300 text-justify">
+          <h3 className="text-lg font-semibold text-purple-400">
+            Industrial University of Ho Chi Minh City
+          </h3>
+          <p>
+            <span className="font-semibold text-purple-300">Major:</span> Software Engineering
+          </p>
+          <p>
+            <span className="font-semibold text-purple-300">Duration:</span> 2021 – Present
+          </p>
+        </div>
+      ),
+    },
+
+    {
+      title: "Certificates",
+      id: "certificates",
+      content: (
+        <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-4 hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
+          <p>
+            <span className="font-semibold text-purple-300">TOEIC:</span>{" "}
+            655 (Listening & Reading), issued by IIG Vietnam (2025)
+          </p>
+          <p>
+            <span className="font-semibold text-purple-300">Observation Internship:</span>{" "}
+            MobiFone Corporation (March 2025)
+          </p>
+        </div>
+      ),
+    },
+
+    {
+      title: "Awards",
+      id: "awards",
+      content: (
+        <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-4 text-justify hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
+          <h3 className="text-lg font-semibold text-purple-400">
+            AOTS Scholarship – Japan / Technical Training Program Funded by the Japanese Government (2025)
+          </h3>
+          <p>
+            Participated in a training course organized by{" "}
+            <span className="font-semibold text-white">
+              AOTS (Association for Overseas Technical Cooperation and Sustainable Partnerships)
+            </span>.
+          </p>
+          <p>
+            <span className="font-semibold text-purple-300">Study Topics:</span>{" "}
+            Web Programming, Software Testing and Quality Assurance, No-code/Low-code Development,
+            Japanese Language, and Japanese Corporate Culture.
+          </p>
+          <p>
+            <span className="font-semibold text-purple-300">Score:</span>{" "}
+            8.89 / 10.00
+          </p>
+          <p>
+            <span className="font-semibold text-purple-300">Skills Acquired:</span>{" "}
+            Enhanced proficiency in automation testing, no-code tools, Japanese business culture,
+            and team collaboration.
+          </p>
+           
+        </div>
+      ),
+    },
+  ];
 
   return (
     <section className="text-white" id="about">
@@ -206,9 +264,7 @@ const AboutSection = () => {
             ))}
           </div>
 
-          <div className="mt-8">
-            {TAB_DATA.find((t) => t.id === tab)?.content}
-          </div>
+          <div className="mt-8">{TAB_DATA.find((t) => t.id === tab)?.content}</div>
         </div>
       </div>
     </section>
