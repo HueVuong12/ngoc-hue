@@ -8,7 +8,7 @@ import TabButton from "./TabButton";
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
-  const [isExpanded, setIsExpanded] = useState(false); // <-- thêm state cho expand ▼
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleTabChange = (id) => {
     startTransition(() => {
@@ -202,6 +202,12 @@ const AboutSection = () => {
             AOTS Scholarship – Japan / Technical Training Program Funded by the Japanese Government (2025)
           </h3>
           <p>
+            <span className="font-semibold text-purple-300">
+              Duration:
+            </span>{" "}
+            Jul 2025 – Oct 2025 (3 months, 12 official training days)
+          </p>
+          <p>
             Participated in a training course organized by{" "}
             <span className="font-semibold text-white">
               AOTS (Association for Overseas Technical Cooperation and Sustainable Partnerships)
@@ -209,22 +215,21 @@ const AboutSection = () => {
           </p>
           <p>
             <span className="font-semibold text-purple-300">Study Topics:</span>{" "}
-            Web Programming, Software Testing and Quality Assurance, No-code/Low-code Development,
+            Web Programming, Software Testing & Quality Assurance, No-code/Low-code Development,
             Japanese Language, and Japanese Corporate Culture.
           </p>
           <p>
             <span className="font-semibold text-purple-300">Score:</span>{" "}
-            8.89 / 10.00
+            88.9/100 (≈ 3.56/4 GPA)
           </p>
           <p>
             <span className="font-semibold text-purple-300">Skills Acquired:</span>{" "}
-            Enhanced proficiency in automation testing, no-code tools, Japanese business culture,
+            Enhanced proficiency in testing, no-code tools, Japanese business culture,
             and team collaboration.
           </p>
-           
         </div>
       ),
-    },
+    }
   ];
 
   return (
