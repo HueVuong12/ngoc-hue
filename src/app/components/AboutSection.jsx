@@ -56,7 +56,7 @@ const TAB_DATA = [
         {/* Fresher Role */}
         <div>
           <p className="text-gray-300 font-medium">
-            Software Tester (Fresher) <span className="text-gray-400 text-sm">| 11/2025 – Present</span>
+            Software Tester (Fresher) <span className="text-gray-400 text-sm">| Nov 2025 – Present</span>
           </p>
 
         </div>
@@ -64,7 +64,7 @@ const TAB_DATA = [
         {/* Intern Role */}
         <div>
           <p className="text-gray-300 font-medium mt-4">
-            Software Tester Intern <span className="text-gray-400 text-sm">| 07/2025 – 10/2025</span>
+            Software Tester Intern <span className="text-gray-400 text-sm">| Jul 2025 – Oct 2025</span>
           </p>
 
           <div className="space-y-3 mt-1">
