@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import TabButton from "./TabButton";
 
+
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
@@ -180,55 +181,101 @@ const AboutSection = () => {
       title: "Certificates",
       id: "certificates",
       content: (
-        <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-4 hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
-          <p>
-            <span className="font-semibold text-purple-300">TOEIC:</span>{" "}
+        <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg text-gray-300 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] transition-all duration-300">
+
+          {/* TOEIC */}
+          <p className="mb-3 text-sm md:text-base">
+            <span className="font-semibold text-purple-400">TOEIC:</span>{" "}
             655 (Listening & Reading), issued by IIG Vietnam (2025)
           </p>
-          <p>
-            <span className="font-semibold text-purple-300">Observation Internship:</span>{" "}
+
+          {/* AOTS Scholarship - ĐÃ HOÀN THIỆN */}
+          <div className="mt-1 group">
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="w-full text-left flex items-start gap-3"
+            >
+              <div className="flex-1 min-w-0">
+                <p className="font-semibold text-purple-400 text-sm md:text-base group-hover:text-purple-300 transition-colors leading-snug">
+                  AOTS Scholarship – Japan / Technical Training Program
+                </p>
+                <p className="font-semibold text-purple-400 text-sm md:text-base group-hover:text-purple-300 transition-colors leading-snug mt-0.5">
+                  Funded by the Japanese Government (2025)
+                </p>
+
+              </div>
+
+              <div className="flex-shrink-0 pt-0.5">
+                {isExpanded ? (
+                  <ChevronUp className="w-5 h-5 text-purple-400" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-purple-400" />
+                )}
+              </div>
+            </button>
+          </div>
+
+          {isExpanded && (
+            <div className="mt-3 space-y-2 animate-fadeIn text-sm md:text-base leading-relaxed">
+              <p>
+                <span className="font-semibold text-purple-400">Duration:</span>{" "}
+                Jul 2025 – Oct 2025
+              </p>
+
+              <p className="text-justify">
+                <span className="font-semibold text-purple-400">Study Topics:</span>{" "}
+                Low-Code/No-code Development, Web Application Development with React, User Authentication & Basic Web Security with Laravel and MySQL, Japanese for IT and Japanese Culture.
+              </p>
+
+              <p>
+                <span className="font-semibold text-purple-400">Score:</span>{" "}
+                8.89 / 10
+              </p>
+
+              <p className="text-justify">
+                <span className="font-semibold text-purple-400">Skills Acquired:</span>{" "}
+                Built and tested web applications using React, Laravel, and MySQL, Implemented user authentication and applied basic web security practices, Gained hands-on experience with low-code/no-code platforms for rapid development, Improved skills in debugging, verifying functionalities, and ensuring application reliability, Developed basic communication skills in Japanese for IT and understanding of Japanese work culture.              </p>
+
+              <a
+                href="/certificates/aots-certificate.png"
+                download
+                className="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium text-purple-200 bg-[#20132f]/70 border border-purple-500/40 overflow-hidden group transition-all duration-300"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-purple-600/20 via-transparent to-purple-600/20 opacity-0 group-hover:opacity-100 blur-md transition-all duration-500"></span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-4 h-4 text-purple-400 group-hover:translate-y-[2px] transition-transform duration-300"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4m-8 8h8" />
+                </svg>
+                <span className="relative z-10 group-hover:text-purple-100 transition-colors duration-300">
+                  Download Certificate
+                </span>
+                <span className="absolute inset-0 rounded-full border border-purple-500/50 group-hover:shadow-[0_0_15px_rgba(168,85,247,0.6)] transition-all duration-500"></span>
+              </a>
+            </div>
+          )}
+
+          {/* MobiFone */}
+          <p className="mt-4 text-sm md:text-base">
+            <span className="font-semibold text-purple-400">Observation Internship:</span>{" "}
             MobiFone Corporation (March 2025)
           </p>
         </div>
       ),
     },
-
     {
       title: "Awards",
       id: "awards",
-      content: (
-        <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-4 text-justify hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
-          <h3 className="text-lg font-semibold text-purple-400">
-            AOTS Scholarship – Japan / Technical Training Program Funded by the Japanese Government (2025)
-          </h3>
-          <p>
-            <span className="font-semibold text-purple-300">
-              Duration:
-            </span>{" "}
-            Jul 2025 – Oct 2025 (3 months, 12 official training days)
-          </p>
-          <p>
-            Participated in a training course organized by{" "}
-            <span className="font-semibold text-white">
-              AOTS (Association for Overseas Technical Cooperation and Sustainable Partnerships)
-            </span>.
-          </p>
-          <p>
-            <span className="font-semibold text-purple-300">Study Topics:</span>{" "}
-            Web Programming, Software Testing & Quality Assurance, No-code/Low-code Development,
-            Japanese Language, and Japanese Corporate Culture.
-          </p>
-          <p>
-            <span className="font-semibold text-purple-300">Score:</span>{" "}
-            88.9/100 (≈ 3.56/4 GPA)
-          </p>
-          <p>
-            <span className="font-semibold text-purple-300">Skills Acquired:</span>{" "}
-            Enhanced proficiency in testing, no-code tools, Japanese business culture,
-            and team collaboration.
-          </p>
-        </div>
-      ),
+        // content: (
+        //   <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-4 text-justify hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
+
+        //   </div>
+        // ),
     }
   ];
 
