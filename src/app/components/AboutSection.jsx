@@ -29,6 +29,10 @@ const AboutSection = () => {
               Selenium WebDriver, TestNG, JUnit, Postman, REST Assured, CI/CD, JMeter,
               Performance Testing.
             </p>
+             <p>
+              <span className="font-semibold text-purple-300">Manual Testing:</span>{" "}
+              Test Case design, Test Execution, Bug Tracking (Jira), Regression & Smoke Testing.
+            </p>
 
             <p>
               <span className="font-semibold text-purple-300">Frontend:</span>{" "}
@@ -65,10 +69,33 @@ const AboutSection = () => {
 
           {/* Fresher Role */}
           <div>
-            <p className="text-gray-300 font-medium">
-              Software Tester (Fresher){" "}
-              <span className="text-gray-400 text-sm">| Nov 2025 – Present</span>
-            </p>
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="w-full flex justify-between items-center text-left text-gray-300 font-medium mt-4 hover:text-purple-300 transition-all"
+            >
+              <span>
+                Software Tester (Fresher){" "}
+                <span className="text-gray-400 text-sm">| Nov 2025 – Present</span>
+              </span>
+              {isExpanded ? (
+                <ChevronUp className="w-5 h-5 text-purple-400" />
+              ) : (
+                <ChevronDown className="w-5 h-5 text-purple-400" />
+              )}
+            </button>
+            {isExpanded && (
+              <div className="space-y-3 mt-3 animate-fadeIn">
+                <div>
+                  <p className="text-gray-200 font-semibold">MyVSP</p>
+                  <ul className="list-disc list-inside text-gray-300 space-y-1">
+                    {/* <li>
+                      Tested a national digital identity mini app used by millions of
+                      citizens across Vietnam.
+                    </li> */}
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Intern Role */}
@@ -92,7 +119,7 @@ const AboutSection = () => {
               <div className="space-y-3 mt-3 animate-fadeIn">
                 <div>
                   <p className="text-gray-200 font-semibold">VNeID Mini App</p>
-                  <ul className="list-disc list-inside text-gray-300 space-y-1">
+                  {/* <ul className="list-disc list-inside text-gray-300 space-y-1">
                     <li>
                       Tested a national digital identity mini app used by millions of
                       citizens across Vietnam.
@@ -110,12 +137,12 @@ const AboutSection = () => {
                       verify, and resolve defects efficiently.
                     </li>
                     <li>Tools: Postman, Jira, Excel.</li>
-                  </ul>
+                  </ul> */}
                 </div>
 
                 <div>
                   <p className="text-gray-200 font-semibold">Di_HDBank Mobile App</p>
-                  <ul className="list-disc list-inside text-gray-300 space-y-1">
+                  {/* <ul className="list-disc list-inside text-gray-300 space-y-1">
                     <li>
                       Conducted functional, UI, and API testing for mobile banking
                       features used nationwide.
@@ -133,7 +160,7 @@ const AboutSection = () => {
                       quality.
                     </li>
                     <li>Tools: Postman, Jira, TestRail.</li>
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             )}
@@ -271,11 +298,11 @@ const AboutSection = () => {
     {
       title: "Awards",
       id: "awards",
-        // content: (
-        //   <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-4 text-justify hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
+      // content: (
+      //   <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-4 text-justify hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
 
-        //   </div>
-        // ),
+      //   </div>
+      // ),
     }
   ];
 

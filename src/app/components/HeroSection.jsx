@@ -24,7 +24,9 @@ const HeroSection = () => {
               sequence={[
                 "Vuong Ngoc Hue",
                 2000,
-                "Automation Test",
+                "Automation Testing",
+                2000,
+                "Manual Testing",
                 2000,
                 "Frontend Developer",
                 2000
