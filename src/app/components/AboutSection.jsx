@@ -26,28 +26,28 @@ const AboutSection = () => {
           <div className="space-y-3 text-gray-300">
             <p>
               <span className="font-semibold text-purple-300">Automation Testing:</span>{" "}
-              Selenium WebDriver, TestNG, JUnit, Postman, REST Assured, CI/CD, JMeter,
-              Performance Testing.
+              Selenium WebDriver, TestNG, JUnit, REST Assured, CI/CD, JMeter,
+              Performance Testing, Security Testing (OWASP ZAP).
             </p>
-             <p>
+            <p>
               <span className="font-semibold text-purple-300">Manual Testing:</span>{" "}
-              Test Case design, Test Execution, Bug Tracking (Jira), Regression & Smoke Testing.
+              Test Case design, Test Execution, Bug Tracking (Jira), Regression & Smoke Testing, API Testing (Postman), Security Testing (OWASP ZAP), Knowledge of SDLC & STLC.
             </p>
 
-            <p>
+            {/* <p>
               <span className="font-semibold text-purple-300">Frontend:</span>{" "}
               React.js, React Query, Tailwind CSS.
-            </p>
+            </p> */}
 
             <p>
               <span className="font-semibold text-purple-300">Database:</span>{" "}
               MongoDB, SQL.
             </p>
 
-            <p>
+            {/* <p>
               <span className="font-semibold text-purple-300">Mobile:</span>{" "}
               React Native.
-            </p>
+            </p> */}
 
             <p>
               <span className="font-semibold text-purple-300">Other Tools:</span>{" "}
@@ -70,28 +70,26 @@ const AboutSection = () => {
           {/* Fresher Role */}
           <div>
             <button
-              onClick={() => setIsExpanded(!isExpanded)}
+              // Nếu đang mở 'fresher' thì bấm vào sẽ đóng (null), nếu không thì mở 'fresher'
+              onClick={() => setIsExpanded(isExpanded === "fresher" ? null : "fresher")}
               className="w-full flex justify-between items-center text-left text-gray-300 font-medium mt-4 hover:text-purple-300 transition-all"
             >
               <span>
                 Software Tester (Fresher){" "}
                 <span className="text-gray-400 text-sm">| Nov 2025 – Present</span>
               </span>
-              {isExpanded ? (
+              {isExpanded === "fresher" ? (
                 <ChevronUp className="w-5 h-5 text-purple-400" />
               ) : (
                 <ChevronDown className="w-5 h-5 text-purple-400" />
               )}
             </button>
-            {isExpanded && (
+            {isExpanded === "fresher" && (
               <div className="space-y-3 mt-3 animate-fadeIn">
                 <div>
                   <p className="text-gray-200 font-semibold">MyVSP</p>
                   <ul className="list-disc list-inside text-gray-300 space-y-1">
-                    {/* <li>
-                      Tested a national digital identity mini app used by millions of
-                      citizens across Vietnam.
-                    </li> */}
+
                   </ul>
                 </div>
               </div>
@@ -101,25 +99,26 @@ const AboutSection = () => {
           {/* Intern Role */}
           <div>
             <button
-              onClick={() => setIsExpanded(!isExpanded)}
+              // Nếu đang mở 'intern' thì bấm vào sẽ đóng (null), nếu không thì mở 'intern'
+              onClick={() => setIsExpanded(isExpanded === "intern" ? null : "intern")}
               className="w-full flex justify-between items-center text-left text-gray-300 font-medium mt-4 hover:text-purple-300 transition-all"
             >
               <span>
-                Software Tester Intern{" "}
+                Software Tester (Intern){" "}
                 <span className="text-gray-400 text-sm">| Jul 2025 – Oct 2025</span>
               </span>
-              {isExpanded ? (
+              {isExpanded === "intern" ? (
                 <ChevronUp className="w-5 h-5 text-purple-400" />
               ) : (
                 <ChevronDown className="w-5 h-5 text-purple-400" />
               )}
             </button>
 
-            {isExpanded && (
+            {isExpanded === "intern" && (
               <div className="space-y-3 mt-3 animate-fadeIn">
                 <div>
                   <p className="text-gray-200 font-semibold">VNeID Mini App</p>
-                  {/* <ul className="list-disc list-inside text-gray-300 space-y-1">
+                  <ul className="list-disc list-inside text-gray-300 space-y-1">
                     <li>
                       Tested a national digital identity mini app used by millions of
                       citizens across Vietnam.
@@ -136,52 +135,29 @@ const AboutSection = () => {
                       Collaborated with developers and business analysts to track,
                       verify, and resolve defects efficiently.
                     </li>
-                    <li>Tools: Postman, Jira, Excel.</li>
-                  </ul> */}
-                </div>
-
-                <div>
-                  <p className="text-gray-200 font-semibold">Di_HDBank Mobile App</p>
-                  {/* <ul className="list-disc list-inside text-gray-300 space-y-1">
-                    <li>
-                      Conducted functional, UI, and API testing for mobile banking
-                      features used nationwide.
-                    </li>
-                    <li>
-                      Performed regression testing across Android and iOS to ensure
-                      feature consistency and stability.
-                    </li>
-                    <li>
-                      Verified API responses and optimized end-user experience through
-                      detailed defect analysis.
-                    </li>
-                    <li>
-                      Collaborated with developers to resolve issues and improve product
-                      quality.
-                    </li>
-                    <li>Tools: Postman, Jira, TestRail.</li>
-                  </ul> */}
+                    {/* Đã sửa lỗi chính tả Swaggaer -> Swagger */}
+                    <li>Tools: Postman, Swagger, Jira, Excel.</li>
+                  </ul>
                 </div>
               </div>
             )}
           </div>
 
           <style jsx>{`
-            @keyframes fadeIn {
-              from {
-                opacity: 0;
-                transform: translateY(-5px);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-
-            .animate-fadeIn {
-              animation: fadeIn 0.3s ease-in-out;
-            }
-          `}</style>
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-5px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-in-out;
+        }
+      `}</style>
         </div>
       ),
     },
@@ -216,7 +192,6 @@ const AboutSection = () => {
             655 (Listening & Reading), issued by IIG Vietnam (2025)
           </p>
 
-          {/* AOTS Scholarship - ĐÃ HOÀN THIỆN */}
           <div className="mt-1 group">
             <button
               onClick={() => setIsExpanded(!isExpanded)}
@@ -264,7 +239,7 @@ const AboutSection = () => {
                 Built and tested web applications using React, Laravel, and MySQL, Implemented user authentication and applied basic web security practices, Gained hands-on experience with low-code/no-code platforms for rapid development, Improved skills in debugging, verifying functionalities, and ensuring application reliability, Developed basic communication skills in Japanese for IT and understanding of Japanese work culture.              </p>
 
               <a
-                href="/certificates/aots-certificate.png"
+                href="/aots.jpg"
                 download
                 className="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium text-purple-200 bg-[#20132f]/70 border border-purple-500/40 overflow-hidden group transition-all duration-300"
               >
