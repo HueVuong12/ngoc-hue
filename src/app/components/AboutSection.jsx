@@ -6,6 +6,27 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import TabButton from "./TabButton";
 
 
+const calculateExperience = (startDate) => {
+  const start = new Date(startDate);
+  const now = new Date();
+
+  let totalMonths =
+    (now.getFullYear() - start.getFullYear()) * 12 +
+    (now.getMonth() - start.getMonth());
+
+  if (totalMonths < 0) totalMonths = 0;
+
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+
+  if (years > 0) {
+    return `${years} yr ${months} mo`;
+  }
+  return `${totalMonths} mo`;
+};
+
+const totalExperience = calculateExperience("2025-07-01");
+
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
   const [isPending, startTransition] = useTransition();
@@ -31,23 +52,12 @@ const AboutSection = () => {
             </p>
             <p>
               <span className="font-semibold text-purple-300">Manual Testing:</span>{" "}
-              Test Case design, Test Execution, Bug Tracking (Jira), Regression & Smoke Testing, API Testing (Postman), Security Testing (OWASP ZAP), Knowledge of SDLC & STLC.
+              Test Case design, Test Execution, Bug Tracking (Jira), Regression & Smoke Testing, API Testing (Postman), JMeter, Security Testing (OWASP ZAP), Knowledge of SDLC & STLC.
             </p>
-
-            {/* <p>
-              <span className="font-semibold text-purple-300">Frontend:</span>{" "}
-              React.js, React Query, Tailwind CSS.
-            </p> */}
-
             <p>
               <span className="font-semibold text-purple-300">Database:</span>{" "}
               MongoDB, SQL.
             </p>
-
-            {/* <p>
-              <span className="font-semibold text-purple-300">Mobile:</span>{" "}
-              React Native.
-            </p> */}
 
             <p>
               <span className="font-semibold text-purple-300">Other Tools:</span>{" "}
@@ -63,14 +73,20 @@ const AboutSection = () => {
       id: "work_experience",
       content: (
         <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg text-gray-300 hover:shadow-purple-500/30 transition-all duration-300 space-y-5">
-          <div>
+          <div className="flex justify-between items-center">
             <h3 className="text-xl font-semibold text-purple-400">FPT IS</h3>
+
+            <span className="text-sm text-gray-400">
+              Jul 2025 – Present ·{" "}
+              <span className="text-purple-300 font-medium">
+                {totalExperience}
+              </span>
+            </span>
           </div>
 
-          {/* Fresher Role */}
+
           <div>
             <button
-              // Nếu đang mở 'fresher' thì bấm vào sẽ đóng (null), nếu không thì mở 'fresher'
               onClick={() => setIsExpanded(isExpanded === "fresher" ? null : "fresher")}
               className="w-full flex justify-between items-center text-left text-gray-300 font-medium mt-4 hover:text-purple-300 transition-all"
             >
@@ -96,10 +112,8 @@ const AboutSection = () => {
             )}
           </div>
 
-          {/* Intern Role */}
           <div>
             <button
-              // Nếu đang mở 'intern' thì bấm vào sẽ đóng (null), nếu không thì mở 'intern'
               onClick={() => setIsExpanded(isExpanded === "intern" ? null : "intern")}
               className="w-full flex justify-between items-center text-left text-gray-300 font-medium mt-4 hover:text-purple-300 transition-all"
             >
@@ -135,7 +149,6 @@ const AboutSection = () => {
                       Collaborated with developers and business analysts to track,
                       verify, and resolve defects efficiently.
                     </li>
-                    {/* Đã sửa lỗi chính tả Swaggaer -> Swagger */}
                     <li>Tools: Postman, Swagger, Jira, Excel.</li>
                   </ul>
                 </div>
@@ -186,7 +199,6 @@ const AboutSection = () => {
       content: (
         <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg text-gray-300 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] transition-all duration-300">
 
-          {/* TOEIC */}
           <p className="mb-3 text-sm md:text-base">
             <span className="font-semibold text-purple-400">TOEIC:</span>{" "}
             655 (Listening & Reading), issued by IIG Vietnam (2025)
@@ -262,7 +274,6 @@ const AboutSection = () => {
             </div>
           )}
 
-          {/* MobiFone */}
           <p className="mt-4 text-sm md:text-base">
             <span className="font-semibold text-purple-400">Observation Internship:</span>{" "}
             MobiFone Corporation (March 2025)
