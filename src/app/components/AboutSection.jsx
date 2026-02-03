@@ -103,7 +103,7 @@ const AboutSection = () => {
             {isExpanded === "fresher" && (
               <div className="space-y-3 mt-3 animate-fadeIn">
                 <div>
-                  <p className="text-gray-200 font-semibold">MyVSP</p>
+                  <p className="text-gray-200 font-semibold">Internal Mobile Application</p>
                   <ul className="list-disc list-inside text-gray-300 space-y-1">
 
                   </ul>
@@ -131,7 +131,7 @@ const AboutSection = () => {
             {isExpanded === "intern" && (
               <div className="space-y-3 mt-3 animate-fadeIn">
                 <div>
-                  <p className="text-gray-200 font-semibold">VNeID Mini App</p>
+                  <p className="text-gray-200 font-semibold">National Electronic Identification and Authentication System</p>
                   <ul className="list-disc list-inside text-gray-300 space-y-1">
                     <li>
                       Tested a national digital identity mini app used by millions of
@@ -284,11 +284,17 @@ const AboutSection = () => {
     {
       title: "Awards",
       id: "awards",
-      // content: (
-      //   <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-4 text-justify hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
+      content: (
+        <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-2 hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
+          <p className="text-sm md:text-base">
+            <span className="font-semibold text-purple-400">
+              Tet Friendship Scholarship
+            </span>
+            <span className="text-gray-400"> · Jan 2026</span>
+          </p>
+        </div>
 
-      //   </div>
-      // ),
+      ),
     }
   ];
 
