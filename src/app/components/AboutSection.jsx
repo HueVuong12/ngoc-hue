@@ -29,7 +29,7 @@ const totalExperience = calculateExperience("2025-07-01");
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
-  const [isPending, startTransition] = useTransition();D
+  const [isPending, startTransition] = useTransition();
   const [expandedWork, setExpandedWork] = useState(null);
   const [expandedCert, setExpandedCert] = useState(false);
 
