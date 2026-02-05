@@ -29,8 +29,9 @@ const totalExperience = calculateExperience("2025-07-01");
 
 const AboutSection = () => {
   const [tab, setTab] = useState("skills");
-  const [isPending, startTransition] = useTransition();
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isPending, startTransition] = useTransition();D
+  const [expandedWork, setExpandedWork] = useState(null);
+  const [expandedCert, setExpandedCert] = useState(false);
 
   const handleTabChange = (id) => {
     startTransition(() => {
@@ -84,23 +85,24 @@ const AboutSection = () => {
             </span>
           </div>
 
-
           <div>
             <button
-              onClick={() => setIsExpanded(isExpanded === "fresher" ? null : "fresher")}
+              onClick={() =>
+                setExpandedWork(expandedWork === "fresher" ? null : "fresher")
+              }
               className="w-full flex justify-between items-center text-left text-gray-300 font-medium mt-4 hover:text-purple-300 transition-all"
             >
               <span>
                 Software Tester (Fresher){" "}
                 <span className="text-gray-400 text-sm">| Nov 2025 – Present</span>
               </span>
-              {isExpanded === "fresher" ? (
+              {expandedWork === "fresher" ? (
                 <ChevronUp className="w-5 h-5 text-purple-400" />
               ) : (
                 <ChevronDown className="w-5 h-5 text-purple-400" />
               )}
             </button>
-            {isExpanded === "fresher" && (
+            {expandedWork === "fresher" && (
               <div className="space-y-3 mt-3 animate-fadeIn">
                 <div>
                   <p className="text-gray-200 font-semibold">Internal Mobile Application</p>
@@ -114,21 +116,23 @@ const AboutSection = () => {
 
           <div>
             <button
-              onClick={() => setIsExpanded(isExpanded === "intern" ? null : "intern")}
+              onClick={() =>
+                setExpandedWork(expandedWork === "intern" ? null : "intern")
+              }
               className="w-full flex justify-between items-center text-left text-gray-300 font-medium mt-4 hover:text-purple-300 transition-all"
             >
               <span>
                 Software Tester (Intern){" "}
                 <span className="text-gray-400 text-sm">| Jul 2025 – Oct 2025</span>
               </span>
-              {isExpanded === "intern" ? (
+              {expandedWork === "intern" ? (
                 <ChevronUp className="w-5 h-5 text-purple-400" />
               ) : (
                 <ChevronDown className="w-5 h-5 text-purple-400" />
               )}
             </button>
 
-            {isExpanded === "intern" && (
+            {expandedWork === "intern" && (
               <div className="space-y-3 mt-3 animate-fadeIn">
                 <div>
                   <p className="text-gray-200 font-semibold">National Electronic Identification and Authentication System</p>
@@ -206,7 +210,7 @@ const AboutSection = () => {
 
           <div className="mt-1 group">
             <button
-              onClick={() => setIsExpanded(!isExpanded)}
+              onClick={() => setExpandedCert(!expandedCert)}
               className="w-full text-left flex items-start gap-3"
             >
               <div className="flex-1 min-w-0">
@@ -220,7 +224,7 @@ const AboutSection = () => {
               </div>
 
               <div className="flex-shrink-0 pt-0.5">
-                {isExpanded ? (
+                {expandedWork ? (
                   <ChevronUp className="w-5 h-5 text-purple-400" />
                 ) : (
                   <ChevronDown className="w-5 h-5 text-purple-400" />
@@ -229,7 +233,7 @@ const AboutSection = () => {
             </button>
           </div>
 
-          {isExpanded && (
+          {expandedCert && (
             <div className="mt-3 space-y-2 animate-fadeIn text-sm md:text-base leading-relaxed">
               <p>
                 <span className="font-semibold text-purple-400">Duration:</span>{" "}
