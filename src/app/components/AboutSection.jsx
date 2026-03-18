@@ -292,9 +292,9 @@ const AboutSection = () => {
         <div className="bg-[#1f1f1f] p-6 rounded-2xl shadow-lg space-y-2 hover:shadow-purple-500/30 transition-all duration-300 text-gray-300">
           <p className="text-sm md:text-base">
             <span className="font-semibold text-purple-400">
-              Tet Friendship Scholarship
+               Friendship Scholarship: 
             </span>
-            <span className="text-gray-400"> · Jan 2026</span>
+            <span className="text-gray-400"> Jan 2026</span>
           </p>
         </div>
 
